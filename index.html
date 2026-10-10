@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tata Surya AR — Nicole</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+
+  <!-- Komponen didaftarkan sebelum scene dibuat. -->
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="petunjuk">
+    <strong>Jelajah Tata Surya AR 🪐</strong>
+    <p id="status-marker" role="status">Marker belum ditemukan. Arahkan kamera ke Hiro.</p>
+    <p id="status-aplikasi" role="status">Memuat AR dan meminta izin kamera…</p>
+    <details>
+      <summary>Petunjuk penggunaan</summary>
+      <p>Izinkan kamera. Tampilkan seluruh marker Hiro dengan batas hitamnya di tempat terang. Pilih planet untuk memperbesar, lalu pilih Tata Surya untuk kembali.</p>
+      <p>Gunakan Jeda dan Kecepatan untuk mengamati gerakan.</p>
+      <a href="https://raw.githubusercontent.com/AR-js-org/AR.js/3.4.7/data/images/hiro.png" target="_blank" rel="noopener noreferrer">Buka marker Hiro untuk dicetak atau ditampilkan di layar lain</a>
+      <p>Ukuran, jarak, dan waktu orbit bukan skala astronomi nyata.</p>
+    </details>
+  </div>
+
+  <div class="panel-kontrol">
+  <details open>
+  <summary>Kontrol dan informasi planet</summary>
+  <label for="pilih-planet">Pelajari planet</label>
+
+  <select id="pilih-planet">
+    <option value="">Tampilkan Tata Surya...</option>
+    <option value="Merkurius">Merkurius</option>
+    <option value="Venus">Venus</option>
+    <option value="Bumi">Bumi</option>
+    <option value="Mars">Mars</option>
+    <option value="Jupiter">Jupiter</option>
+    <option value="Saturnus">Saturnus</option>
+    <option value="Uranus">Uranus</option>
+    <option value="Neptunus">Neptunus</option>
+  </select>
+
+  <div id="informasi-planet" aria-live="polite">
+    Pilih planet untuk melihat informasinya.
+  </div>
+
+  <div class="baris-kontrol">
+    <button id="tombol-jeda" type="button" aria-pressed="false">Jeda animasi</button>
+
+    <label for="kecepatan">Kecepatan</label>
+    <select id="kecepatan">
+      <option value="0.5">0,5×</option>
+      <option value="1" selected>1×</option>
+      <option value="2">2×</option>
+      <option value="4">4×</option>
+    </select>
+  </div>
+  </details>
+</div>
+
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    renderer="antialias: true; alpha: true;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets timeout="15000">
+      <img id="tekstur-merkurius" src="assets/textures/merkurius.jpg" alt="Peta Merkurius">
+      <img id="tekstur-venus" src="assets/textures/venus.jpg" alt="Peta atmosfer Venus">
+      <img id="tekstur-bumi" src="assets/textures/bumi.jpg" alt="Peta permukaan Bumi untuk tekstur bola">
+      <img id="tekstur-mars" src="assets/textures/mars.jpg" alt="Peta Mars">
+      <img id="tekstur-saturnus" src="assets/textures/saturnus.jpg" alt="Peta Saturnus">
+      <img id="tekstur-uranus" src="assets/textures/uranus.jpg" alt="Peta Uranus">
+      <img id="tekstur-neptunus" src="assets/textures/neptunus.jpg" alt="Peta Neptunus">
+    </a-assets>
+
+    <a-marker id="marker-hiro" preset="hiro">
+      <a-entity
+        id="tata-surya"
+        position="0 0.3 0"
+        scale="0.40 0.40 0.40"
+        tata-surya>
+      </a-entity>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>

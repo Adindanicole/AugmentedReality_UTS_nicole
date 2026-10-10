@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.petunjuk {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 10;
+  max-width: 420px;
+  margin: auto;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  background: rgba(10, 16, 35, 0.85);
+  color: white;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.petunjuk strong {
+  color: #ffd166;
+  font-size: 20px;
+}
+
+.petunjuk p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.petunjuk small {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+.panel-kontrol {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 10;
+  max-width: 420px;
+  max-height: 42vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  background: rgba(10, 16, 35, 0.9);
+  color: white;
+}
+
+.panel-kontrol > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+select,
+button {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+a-scene { position: fixed; inset: 0; width: 100%; height: 100%; }
+summary { cursor: pointer; padding: 6px 0; font-weight: bold; }
+details > label { display: block; margin: 8px 0; }
+.petunjuk { max-height: 35dvh; overflow-y: auto; }
+.petunjuk strong { font-size: 17px; }
+.petunjuk a { color: #67e8f9; font-size: 13px; }
+#status-aplikasi { font-size: 12px; color: #cbd5e1; }
+#status-marker[data-found="true"] { color: #86efac; }
+.panel-kontrol { bottom: max(12px, env(safe-area-inset-bottom)); max-height: 40dvh; }
+button:disabled, select:disabled { opacity: 0.6; cursor: wait; }
+@media (min-width: 900px) {
+  .petunjuk { right: auto; left: 16px; max-width: 310px; }
+  .panel-kontrol { left: auto; right: 16px; width: 310px; max-height: 65vh; }
+}
+@media (max-height: 500px) {
+  .petunjuk { left: 8px; right: auto; width: 42%; max-height: 90dvh; }
+  .panel-kontrol { right: 8px; left: auto; width: 46%; max-height: 90dvh; }
+}
+
+#pilih-planet {
+  width: 100%;
+  background: #f1f5f9;
+  color: #172033;
+}
+
+#informasi-planet {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#informasi-planet strong {
+  color: #ffd166;
+}
+
+#informasi-planet p {
+  margin: 6px 0;
+}
+
+.baris-kontrol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  background: #ffd166;
+  color: #172033;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid #67e8f9;
+  outline-offset: 2px;
+}
